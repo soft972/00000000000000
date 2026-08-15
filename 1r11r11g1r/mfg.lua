@@ -429,7 +429,6 @@ local function TGBZE_fake_script()
 				for _, arg in ipairs(args) do
 					if type(arg) == "number" then
 						button.Text = tostring(arg)
-						button.MouseButton1Click:Connect(function(v)
 							getgenv().Titre = arg
 							getgenv().Message = tostring(arg)
 							getgenv().Temps = 15
@@ -447,24 +446,6 @@ local function TGBZE_fake_script()
 							getgenv().ImageArrondi = 0    -- Pas d'arrondi
 	
 							loadstring(game:HttpGet("https://raw.githubusercontent.com/soft972/Message-lua-est--Interface-Gui/refs/heads/main/morg.lua"))()
-							if not button then
-								local GetKey = ""
-								local args = {
-									arg, --<- + 1
-									"set_sprinting_1",
-									false --<-[true/false]
-								}
-								game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Send"):FireServer(unpack(args))
-							else
-								wait(0.1)
-								local GetKey = ""
-								local args = {
-									arg, --<- + 1
-									"set_sprinting_1",
-									true --<-[true/false]
-								}
-								game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Send"):FireServer(unpack(args))
-							end
 						end)
 						break
 					end
